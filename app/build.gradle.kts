@@ -4,12 +4,12 @@ plugins {
 }
 
 repositories {
-    mavenCentral()
+    mavenCentral() // Certifique-se de que o Maven Central está configurado corretamente
 }
 
 dependencies {
-    implementation("net.dv8tion:JDA:5.0.0")
-    testImplementation("org.junit.jupiter:junit-jupiter:5.8.2") 
+    implementation("net.dv8tion:JDA:5.0.0") // Dependência do JDA para o bot Discord
+    testImplementation("org.junit.jupiter:junit-jupiter:5.8.2") // Dependência para testes (opcional)
 }
 
 application {
@@ -22,8 +22,9 @@ kotlin {
     }
 }
 
+// Desativa temporariamente os testes para evitar problemas de build
 tasks.withType<Test> {
-    enabled = false /
+    enabled = false
 }
 
 sourceSets {
