@@ -15,7 +15,7 @@ class MessageListener : ListenerAdapter() {
         if (event.author.isBot) return
 
         val chance = random.nextInt(1, 101)
-        if (chance==1){
+        if (chance==69){
             event.channel.sendMessage("Não quero te responder essa noite").queue()
             val embed = EmbedBuilder()
                 .setTitle("AUUUUUU!")
