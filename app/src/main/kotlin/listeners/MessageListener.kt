@@ -3,6 +3,8 @@ package listeners
 import commands.boaNoiteCommand
 import commands.FomeCommand
 import commands.skullCommand
+import commands.fCommand
+import commands.rollCommand
 import kotlin.random.Random
 
 import net.dv8tion.jda.api.EmbedBuilder
@@ -30,6 +32,8 @@ class MessageListener : ListenerAdapter() {
             message.contains("boa", ignoreCase = true) -> boaNoiteCommand().execute(event)
             message.contains("fome", ignoreCase = true) -> FomeCommand().execute(event)
             message.contains("💀", ignoreCase = true) -> skullCommand().execute(event)
+            message.contains("F", ignoreCase = true) ->fCommand().execute(event)
+            message.contains("role", ignoreCase = true) -> rollCommand().execute(event)
             //message.contains("outro_comando", ignoreCase = true) -> OutroCommand().execute(event)
             else -> return 
         }
