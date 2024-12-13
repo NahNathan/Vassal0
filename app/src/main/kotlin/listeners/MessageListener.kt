@@ -8,6 +8,7 @@ import commands.rollCommand
 import commands.eventoCommand
 import commands.ressonanciaCommand
 import kotlin.random.Random
+import kotlin.math.log
 
 import net.dv8tion.jda.api.EmbedBuilder
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent
@@ -18,7 +19,8 @@ class MessageListener : ListenerAdapter() {
     override fun onMessageReceived(event: MessageReceivedEvent) {
         if (event.author.isBot) return
         val message = event.message.contentRaw
-        if(!message.contains("@Vassal0"))return
+        print(message)
+        if(!message.contains(">vai"))return
 
         val chance = random.nextInt(1, 101)
         if (chance==69){
