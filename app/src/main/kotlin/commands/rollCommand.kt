@@ -9,7 +9,6 @@ class rollCommand {
     fun execute(event: MessageReceivedEvent) {
         val message = event.message.contentRaw
 
-        // Parse the number of dice and hunger dice from the message
         val match = Regex("role (\\d+) (\\d+)").find(message)
         if (match == null) {
             event.channel.sendMessage("Formato incorreto. Use: role <número de dados> <dados de fome>").queue()
@@ -25,24 +24,24 @@ class rollCommand {
             return
         }
 
-        // Roll the dice
+        
         val results = List(dicePool) { random.nextInt(1, 11) }
         val hungerResults = results.take(hungerDice)
 
-        // Count successes and other conditions
+        
         var successes = results.count { it >= 6 }
         val criticals = results.filter { it == 10 }.size
         val hungerCriticals = hungerResults.filter { it == 10 }.size
         val ones = hungerResults.count { it == 1 }
 
         // Determine outcomes
-        val totalCriticals = criticals / 2 // Pair of 10s count as 1 critical success
+        val totalCriticals = criticals / 2 
         successes += totalCriticals * 2
 
         val messyCritical = hungerCriticals >= 2
         val bestialFailure = ones > 0 && successes == 0
 
-        // Build the result message
+        
         val resultMessage = StringBuilder()
         resultMessage.append("🎲 Resultado dos dados:\n")
         resultMessage.append("Dados: ${results.joinToString(", ")}\n")
