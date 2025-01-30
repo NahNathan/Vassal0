@@ -11,7 +11,7 @@ class rollCommand {
 
         val match = Regex("role (\\d+) (\\d+)").find(message)
         if (match == null) {
-            event.channel.sendMessage("Formato incorreto. Use: role <número de dados> <dados de fome>").queue()
+            event.channel.sendMessage("Digitou errado. Use: role <número de dados> <dados de fome>").queue()
             return
         }
 
@@ -20,35 +20,44 @@ class rollCommand {
         val hungerDice = hunger.toIntOrNull() ?: return
 
         if (dicePool <= 0 || hungerDice < 0 || hungerDice > dicePool) {
-            event.channel.sendMessage("Quantidade inválida de dados ou dados de fome.").queue()
+            event.channel.sendMessage("Hmm, parece ser inválido, revise as quantidades de dados.").queue()
             return
         }
 
-        
+        // Rolar os dados
         val results = List(dicePool) { random.nextInt(1, 11) }
-        val hungerResults = results.take(hungerDice)
+        val hungerResults = results.take(hungerDice) // Dados de fome
+        val normalResults = results.drop(hungerDice) // Dados normais
 
-        
+        // Contagem de sucessos, falhas e críticos
         var successes = results.count { it >= 6 }
-        val criticals = results.filter { it == 10 }.size
-        val hungerCriticals = hungerResults.filter { it == 10 }.size
+        val criticals = results.count { it == 10 }
+        val hungerCriticals = hungerResults.count { it == 10 }
         val ones = hungerResults.count { it == 1 }
 
-        // Determine outcomes
-        val totalCriticals = criticals / 2 
+        // Ajuste para sucessos críticos
+        val totalCriticals = criticals / 2
         successes += totalCriticals * 2
 
         val messyCritical = hungerCriticals >= 2
         val bestialFailure = ones > 0 && successes == 0
 
-        
+        // Formatar a exibição dos dados com 🩸 antes e depois dos dados de fome
+        val formattedResults = buildString {
+            append("🩸 ")
+            append(hungerResults.joinToString("  "))
+            append(" 🩸  ")
+            append(normalResults.joinToString("  "))
+        }
+
+        // Construção da mensagem final
         val resultMessage = StringBuilder()
-        resultMessage.append("🎲 Resultado dos dados:\n")
-        resultMessage.append("Dados: ${results.joinToString(", ")}\n")
-        resultMessage.append("Sucessos: $successes\n")
-        if (totalCriticals > 0) resultMessage.append("Críticos: $totalCriticals\n")
-        if (messyCritical) resultMessage.append("⚠️ Crítico Sujo!\n")
-        if (bestialFailure) resultMessage.append("☠️ Falha Bestial!\n")
+        resultMessage.append("🎲 **Resultado dos dados:**\n")
+        resultMessage.append("Dados: $formattedResults\n\n") // Adiciona um espaço para melhor visualização
+        resultMessage.append("Sucessos: **$successes**\n")
+        if (totalCriticals > 0) resultMessage.append("✨ **Críticos:** $totalCriticals\n")
+        if (messyCritical) resultMessage.append("⚠️ **Crítico Sujo!**\n")
+        if (bestialFailure) resultMessage.append("☠️ **Falha Bestial!**\n")
 
         event.channel.sendMessage(resultMessage.toString()).queue()
     }

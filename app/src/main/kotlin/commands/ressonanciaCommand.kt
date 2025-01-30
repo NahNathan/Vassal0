@@ -9,10 +9,10 @@ class ressonanciaCommand {
         val ressonancia = random.nextInt(1, 11)
         val mensagem =
                 when (ressonancia) {
-                    in 1..3 -> ": Ressonância Fleumática"
-                    in 4..6 -> ": Ressonância Melancólica"
-                    in 7..8 -> ": Ressonância Colérica"
-                    in 9..10 -> ": Ressonância Sanguínea"
+                    in 1..3 -> " Ressonância Fleumática"
+                    in 4..6 -> " Ressonância Melancólica"
+                    in 7..8 -> " Ressonância Colérica"
+                    in 9..10 -> " Ressonância Sanguínea"
 
                     else -> "🖕"
                 } +
