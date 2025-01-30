@@ -24,12 +24,10 @@ class rollCommand {
             return
         }
 
-        // Rolar os dados
         val results = List(dicePool) { random.nextInt(1, 11) }
         val hungerResults = results.take(hungerDice) // Dados de fome
         val normalResults = results.drop(hungerDice) // Dados normais
 
-        // Contagem de sucessos, falhas e críticos
         var successes = results.count { it >= 6 }
         val criticals = results.count { it == 10 }
         val hungerCriticals = hungerResults.count { it == 10 }
@@ -42,18 +40,17 @@ class rollCommand {
         val messyCritical = hungerCriticals >= 2
         val bestialFailure = ones > 0 && successes == 0
 
-        // Formatar a exibição dos dados com 🩸 antes e depois dos dados de fome
         val formattedResults = buildString {
             append("🩸 ")
             append(hungerResults.joinToString("  "))
-            append(" 🩸  ")
+            append(" 🩸    ")
             append(normalResults.joinToString("  "))
         }
 
         // Construção da mensagem final
         val resultMessage = StringBuilder()
         resultMessage.append("🎲 **Resultado dos dados:**\n")
-        resultMessage.append("Dados: $formattedResults\n\n") // Adiciona um espaço para melhor visualização
+        resultMessage.append("Dados: $formattedResults\n\n") 
         resultMessage.append("Sucessos: **$successes**\n")
         if (totalCriticals > 0) resultMessage.append("✨ **Críticos:** $totalCriticals\n")
         if (messyCritical) resultMessage.append("⚠️ **Crítico Sujo!**\n")
