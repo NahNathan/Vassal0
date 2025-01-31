@@ -52,7 +52,6 @@ class rollCommand {
         resultMessage.append("🎲 **Resultado dos dados:**\n")
         resultMessage.append("Dados: $formattedResults\n\n") 
         resultMessage.append("Sucessos: **$successes**\n")
-        if (totalCriticals > 0) resultMessage.append("✨ **Críticos:** $totalCriticals\n")
         if (messyCritical) resultMessage.append("⚠️ **Crítico Sujo!**\n")
         if (bestialFailure) resultMessage.append("☠️ **Falha Bestial!**\n")
 
