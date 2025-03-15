@@ -1,13 +1,14 @@
 package listeners
 
 import commands.boaNoiteCommand
-import commands.FomeCommand
+import commands.fomeCommand
 import commands.skullCommand
 import commands.fCommand
 import commands.rollCommand
 import commands.eventoCommand
 import commands.ressonanciaCommand
 import commands.frenzyCommand
+import commands.helpCommand
 import kotlin.random.Random
 import kotlin.math.log
 
@@ -36,12 +37,13 @@ class MessageListener : ListenerAdapter() {
 
         when {
             message.contains("boa", ignoreCase = true) -> boaNoiteCommand().execute(event)
-            message.contains("fome", ignoreCase = true) -> FomeCommand().execute(event)
-            message.contains("💀", ignoreCase = true) -> skullCommand().execute(event)
-            message.contains("role", ignoreCase = true) -> rollCommand().execute(event)
             message.contains("evento", ignoreCase = true) -> eventoCommand().execute(event)
-            message.contains("resson", ignoreCase = true) -> ressonanciaCommand().execute(event)
             message.contains("frenzy", ignoreCase = true) -> frenzyCommand().execute(event)
+            message.contains("fome", ignoreCase = true) -> fomeCommand().execute(event)
+            message.contains("help", ignoreCase = true) -> helpCommand().execute(event)
+            message.contains("resson", ignoreCase = true) -> ressonanciaCommand().execute(event)        
+            message.contains("role", ignoreCase = true) -> rollCommand().execute(event)
+            message.contains("💀", ignoreCase = true) -> skullCommand().execute(event)
             message.contains("F", ignoreCase = true) ->fCommand().execute(event)
             //message.contains("outro_comando", ignoreCase = true) -> OutroCommand().execute(event)
             else -> return 

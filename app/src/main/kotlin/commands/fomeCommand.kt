@@ -2,7 +2,7 @@ package commands
 import kotlin.random.Random
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent
 
-class FomeCommand {
+class fomeCommand {
     private val random = Random.Default
 
     fun execute(event: MessageReceivedEvent) {
