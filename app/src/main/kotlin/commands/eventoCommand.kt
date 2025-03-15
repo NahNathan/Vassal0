@@ -39,6 +39,5 @@ class eventoCommand {
             29 -> event.channel.sendMessage("noite").queue()
             30 -> event.channel.sendMessage("noite").queue()
         }
-        
     }
 }

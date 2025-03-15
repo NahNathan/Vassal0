@@ -7,6 +7,7 @@ import commands.fCommand
 import commands.rollCommand
 import commands.eventoCommand
 import commands.ressonanciaCommand
+import commands.frenzyCommand
 import kotlin.random.Random
 import kotlin.math.log
 
@@ -37,10 +38,11 @@ class MessageListener : ListenerAdapter() {
             message.contains("boa", ignoreCase = true) -> boaNoiteCommand().execute(event)
             message.contains("fome", ignoreCase = true) -> FomeCommand().execute(event)
             message.contains("💀", ignoreCase = true) -> skullCommand().execute(event)
-            message.contains("F", ignoreCase = true) ->fCommand().execute(event)
             message.contains("role", ignoreCase = true) -> rollCommand().execute(event)
             message.contains("evento", ignoreCase = true) -> eventoCommand().execute(event)
             message.contains("resson", ignoreCase = true) -> ressonanciaCommand().execute(event)
+            message.contains("frenzy", ignoreCase = true) -> frenzyCommand().execute(event)
+            message.contains("F", ignoreCase = true) ->fCommand().execute(event)
             //message.contains("outro_comando", ignoreCase = true) -> OutroCommand().execute(event)
             else -> return 
         }
