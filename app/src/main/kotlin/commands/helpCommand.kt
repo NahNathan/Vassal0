@@ -7,7 +7,7 @@ class helpCommand {
         val helpMessage = """
             🦇 Bem-vindo ao Vassal0, estou ao seu comando
             
-            Use **>vai** seguido de um comando:
+            Use **>vai** seguido de um comando (não precisa das chaves):
             **>vai { boa }** – o Vassal0 te dá um 'boa noite'
             **>vai { compulsão }** - determina uma compulsão aleatória 
             **>vai { evento }** – gera um evento noturno aleatório

@@ -6,13 +6,15 @@ class compulCommand {
     private val random = Random.Default
 
     fun execute(event: MessageReceivedEvent) {
-        val rolada = random.nextInt(1,10)
+    event.channel.sendMessage("(Geralmente, uma compulsão causa uma penalidade de -2 dados, conforme sua natureza)").queue()
+    val rolada = random.nextInt(1,11)
     val mensagem =
         when (rolada) {
-            in 1..3 -> "O seu Sangue se movimenta dentro do seu corpo morto, pedindo e clamando por mais energia. Seus músculos ficam mais cansados e sua mente, mais turva... Compulsão de Fome"
-            in 4..5 -> "Você sente um desejo profundo e poderoso de predominar, controlar e possuir tudo o que está ao seu alcance... Compulsão de Dominância"
-            in 8..9 -> "Como um animal selvagem, confuso e assustado, você se sente impelido à se afastar do perigo, à qualquer custo... Compulsão de Paranoia"
-            10 -> "Uma maldição ancestral causada pelos seus mestres de eras passadas ecoa em suas veias e te domina... Compulsão de Clã"
+            in 1..3 -> "O seu Sangue se movimenta dentro do seu corpo morto, pedindo e clamando por mais energia. Seus músculos ficam mais cansados e sua mente, mais turva... _Compulsão de Fome_"
+            in 4..5 -> "Você sente um desejo profundo e poderoso de predominar, controlar e possuir tudo o que está ao seu alcance... _Compulsão de Dominância_"
+            in 6..7 -> "Seu corpo arde com uma sede insaciável por violência, levando-o a espalhar dor sem controle... _Compulsão de Dano"
+            in 8..9 -> "Como um animal selvagem, confuso e assustado, você se sente impelido à se afastar do perigo, à qualquer custo... _Compulsão de Paranoia_"
+            10 -> "Uma maldição ancestral causada pelos seus mestres de eras passadas ecoa em suas veias e te domina... _Compulsão de Clã_ ( ** Pag 210** ) "
             else -> "🖕"
         }     
         

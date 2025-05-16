@@ -17,15 +17,15 @@ class ressonanciaCommand {
                     else -> "🖕"
                 } +
                         when (temperamento) {
-                            in 1..5 -> " Bem balanceada, Ressonância insignificante"
+                            in 1..5 -> " Bem Balanceada, Temperamento Insignificante"
                             in 6..8 -> " Passageira"
                             in 9..10 -> {
                                 val novaRolagem = random.nextInt(1, 11)
                                 when (novaRolagem) {
                                     in 1..8 ->
                                             " Intensa!! (dado adicional à roladas de disciplinas relacionadas)"
-                                    in 9..0 ->
-                                            " Aguda!! (dado adicional à roladas de disciplinas relacionadas & Dicrasia)"
+                                    in 9..10 ->
+                                            " Aguda!! (dado adicional à roladas de disciplinas relacionadas & Dicrasia, **Pag 230** )"
                                     else -> "🖕"
                                 }
                             }
