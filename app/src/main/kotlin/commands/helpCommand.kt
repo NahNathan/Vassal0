@@ -9,6 +9,7 @@ class helpCommand {
             
             Use **>vai** seguido de um comando:
             **>vai { boa }** – o Vassal0 te dá um 'boa noite'
+            **>vai { compulsão }** - determina uma compulsão aleatória 
             **>vai { evento }** – gera um evento noturno aleatório
             **>vai { frenzy } {dados}** – faz um teste para ver se seu vampiro entra em Frenezi
             **>vai { fome }** – faz um teste de despertar, para ver se sua fome irá aumentar

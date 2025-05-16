@@ -9,6 +9,7 @@ import commands.eventoCommand
 import commands.ressonanciaCommand
 import commands.frenzyCommand
 import commands.helpCommand
+import commands.compulCommand
 import kotlin.random.Random
 import kotlin.math.log
 
@@ -29,7 +30,7 @@ class MessageListener : ListenerAdapter() {
             event.channel.sendMessage("Não quero te responder essa noite").queue()
             val embed = EmbedBuilder()
                 .setTitle("AUUUUUU!")
-                .setImage("https://media1.tenor.com/m/p51_dkd5c1oAAAAd/werewolf.gif")
+                .setImage("https://c.tenor.com/p51_dkd5c1oAAAAd/tenor.gif")
                 .build()
             event.channel.sendMessageEmbeds(embed).queue()
             return
@@ -37,6 +38,7 @@ class MessageListener : ListenerAdapter() {
 
         when {
             message.contains("boa", ignoreCase = true) -> boaNoiteCommand().execute(event)
+            message.contains("compulsão", ignoreCase = true) -> compulCommand().execute(event)
             message.contains("evento", ignoreCase = true) -> eventoCommand().execute(event)
             message.contains("frenzy", ignoreCase = true) -> frenzyCommand().execute(event)
             message.contains("fome", ignoreCase = true) -> fomeCommand().execute(event)
