@@ -10,6 +10,7 @@ import commands.ressonanciaCommand
 import commands.frenzyCommand
 import commands.helpCommand
 import commands.compulCommand
+import commands.regrasCommand
 import kotlin.random.Random
 import kotlin.math.log
 
@@ -43,6 +44,7 @@ class MessageListener : ListenerAdapter() {
             message.contains("frenzy", ignoreCase = true) -> frenzyCommand().execute(event)
             message.contains("fome", ignoreCase = true) -> fomeCommand().execute(event)
             message.contains("help", ignoreCase = true) -> helpCommand().execute(event)
+            message.contains("regras", ignoreCase = true) -> regrasCommand().execute(event)
             message.contains("resson", ignoreCase = true) -> ressonanciaCommand().execute(event)        
             message.contains("role", ignoreCase = true) -> rollCommand().execute(event)
             message.contains("💀", ignoreCase = true) -> skullCommand().execute(event)

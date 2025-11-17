@@ -15,6 +15,7 @@ class helpCommand {
             **>vai { fome }** – faz um teste de despertar, para ver se sua fome irá aumentar
             **>vai { F }** – presta seus respeitos
             **>vai { help }** – mostra a lista de comandos
+            **>vai { regras }** – mostra uma lista com explicações de regras do jogo
             **>vai { resson }** – determina a ressonância do sangue de um mortal aleatório
             **>vai { role } {dados} {dados de fome}** – faz uma rolada normal, considerando sua fome
             **>vai { :skull: }** – Squeleto
